@@ -6,6 +6,8 @@ let greenBod = 255;
 let blueBod = 255;
 let timer = 0;
 
+//github???
+
 function setup() {
   createCanvas(400, 400);
   // Create an Audio input
@@ -14,11 +16,11 @@ function setup() {
   // start the Audio Input.
   // By default, it does not .connect() (to the computer speakers)
   mic.start();
-  
+
 }
 
 function draw() {
-  drawBody();  
+  drawBody();
   drawHead(0.425);
   drawFace();
   for (let timer = 0; timer <10; timer++)
@@ -27,19 +29,19 @@ function draw() {
       greenBG = greenBG - 1;
       blueBG = blueBG -1;
     }
- 
+
 }
 
 function drawBody(){
-  
+
   //body
     noStroke();
     fill(redBG, greenBG, blueBG);
     square(0, 0, width*2);
     rectMode(CENTER);
     fill(redBod,greenBod,blueBod);
-    
-    
+
+
     circle(width/2,width * 0.45, width*0.7);
     noStroke();
     ellipse(width/2, width*0.8, width*3/4, width);
@@ -59,12 +61,12 @@ function drawHead(wid){
 function drawFace() {
   // Get the overall volume (between 0 and 1.0)
   let vol = mic.getLevel();
-  
-  // face details, eyes, 
+
+  // face details, eyes,
   circle(width*0.35,width*0.425,width*vol);
   circle(width*0.65,width*0.425,width*vol);
   ellipse(width/2, width*0.55,width*0.075,width*0.125);
-  
+
   //beak
   push();
     fill(redBG, greenBG, blueBG);
@@ -75,34 +77,34 @@ function drawFace() {
 function mouseMoved() {
     // changes bg to black
     redBG = redBG + 5;
-    if (redBG < 255) 
+    if (redBG < 255)
     {
       redBG = 255;
     }
     greenBG = greenBG - 5;
-    if (greenBG < 45) 
+    if (greenBG < 45)
     {
       greenBG = 45;
     }
     blueBG = blueBG - 5;
-    if (blueBG < 0) 
+    if (blueBG < 0)
     {
       blueBG = 0;
     }
-  
+
   // change body color
       redBod = redBod - 5;
-    if (redBod < 0) 
+    if (redBod < 0)
     {
       redBod = 0;
     }
     greenBod = greenBod - 5;
-    if (greenBod < 0) 
+    if (greenBod < 0)
     {
       greenBod = 0;
     }
     blueBod = blueBod - 5;
-    if (blueBod < 0) 
+    if (blueBod < 0)
     {
       blueBod = 0;
     }
@@ -118,5 +120,3 @@ function mouseClicked()
   greenBod = 255;
   blueBod = 255;
 }
-
-
